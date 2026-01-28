@@ -1,1 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 26th Birthday Kyle ❤️</title>
+
+  <style>
+    :root {
+      --red: #c1121f;
+      --wine: #780000;
+      --white: #ffffff;
+      --valorant: #7b2cbf;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, var(--red), var(--wine));
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      letter-spacing: 0.6rem;
+      animation: glow 2s infinite alternate;
+      cursor: pointer;
+    }
+
+    h1:hover {
+      text-shadow: 0 0 40px var(--valorant), 0 0 60px #e0aaff;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff; }
+      to { text-shadow: 0 0 35px #ffccd5; }
+    }
+
+    .subtitle {
+      margin-top: 1rem;
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+
+    section {
+      padding: 4rem 8%;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      border-radius: 22px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    .card h2 {
+      color: #ffd6e0;
+      margin-bottom: 1rem;
+    }
+
+    .disco {
+      animation: disco 1.5s infinite;
+    }
+
+    @keyframes disco {
+      0% { box-shadow: 0 0 20px #ff4d6d; }
+      50% { box-shadow: 0 0 45px #ffd6e0; }
+      100% { box-shadow: 0 0 20px #ff4d6d; }
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 12px 30px;
+      background: var(--white);
+      color: var(--wine);
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.07);
+      background: #ffe5ec;
+    }
+
+    /* Hearts Game */
+    .hearts span {
+      position: absolute;
+      animation: float 6s linear infinite;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh) scale(0.5); opacity: 1; }
+      to { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+
+    .score {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.35);
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-weight: 600;
+      z-index: 10;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 18px;
+      transition: 0.4s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255,255,255,0.4);
+    }
+
+    /* Countdown */
+    .countdown {
+      font-size: 1.8rem;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Music (add MP3 file named holi-holi.mp3 in same folder) -->
+  <!-- Background Music via YouTube (works without uploads) -->
+  <iframe id="bgMusic" width="0" height="0" src="https://www.youtube.com/embed/6-n_szx2XRE?autoplay=1&loop=1&playlist=6-n_szx2XRE" frameborder="0" allow="autoplay"></iframe>
+
+  <div class="score">🎯 Kills: <span id="points">0</span> | 🟣 ULT: <span id="ult">0%</span></div>
+  <div class="hearts"></div>
+
+  <header>
+    <div>
+      <h1 id="name" title="my favorite person ❤️"></h1>
+      <p class="subtitle" id="typing"></p>
+      <div class="btn" onclick="toggleMusic()">Play / Pause Music</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="card disco" style="border:2px solid #7b2cbf">
+      <h2>🎮 Valorant Mode: REYNA</h2>
+      <p>
+        In the arena, they know you as <strong style="color:#e0aaff">REYNA</strong> —
+        sharp aim, fearless plays, clutch king energy.
+        <br><br>
+        Just like in Valorant, you dominate under pressure.
+        And just so you know… this Reyna already won the most important round — my heart 💜
+      </p>
+    </div>
+
+    <div class="card disco">
+      <h2>⏳ Countdown to Your Day</h2>
+      <div class="countdown" id="countdown"></div>
+    </div>
+
+    <div class="card">
+      <h2>📸 Our Moments</h2>
+      <div class="gallery">
+        <!-- Replace src with your image file names if hosting -->
+        <img src="photo1.jpg" />
+        <img src="photo2.jpg" />
+        <img src="photo3.jpg" />
+        <img src="photo4.jpg" />
+        <img src="photo5.jpg" />
+        <img src="photo6.jpg" />
+      </div>
+    </div>
+
+    <div class="card disco">
+      <h2>🎮 Valorant Mini Game — REYNA MODE</h2>
+      <p>
+        Each heart = one kill 🎯<br>
+        Reach <strong>26 kills</strong> to get an <strong>ACE</strong> 🟣<br>
+        Fill the ULT meter to activate <em>EMPRESS</em>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>❤️ From Me to You</h2>
+      <p>
+        Happy Birthday my love. You are my safest place, my biggest flex,
+        my strongest support, and my favorite human. Watching you grow into
+        the man you are today makes my heart explode with pride.
+        Here’s to you, to us, and to forever ❤️
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    Reyna main. Ace machine. My forever ❤️<br>
+    Made with love for Kyle — 29th January
+  </footer>
+
+  <script>
+    /* Music */
+    const music = document.getElementById('bgMusic');
+    function toggleMusic() {
+      music.paused ? music.play() : music.pause();
+    }
+
+    /* Typing Animation */
+    const nameText = "HAPPY BIRTHDAY, KYLE — REYNA MODE";
+    const subText = "Leveling up to 26 🎮❤️";
+    let i = 0;
+    const nameEl = document.getElementById('name');
+    const typingEl = document.getElementById('typing');
+
+    function typeName() {
+      if (i < nameText.length) {
+        nameEl.innerHTML += nameText.charAt(i);
+        i++;
+        setTimeout(typeName, 120);
+      } else {
+        typeSubtitle();
+      }
+    }
+
+    let j = 0;
+    function typeSubtitle() {
+      if (j < subText.length) {
+        typingEl.innerHTML += subText.charAt(j);
+        j++;
+        setTimeout(typeSubtitle, 70);
+      }
+    }
+
+    typeName();
+
+    /* Hearts Game */
+    const hearts = document.querySelector('.hearts');
+    let points = 0;
+
+    let ult = 0;
+
+    function createHeart() {
+      const heart = document.createElement('span');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+
+      heart.onclick = () => {
+        points++;
+        ult += 4;
+        if (ult > 100) ult = 100;
+        document.getElementById('ult').innerText = ult + '%';
+        document.getElementById('points').innerText = points;
+        if (points === 26) alert('🟣 ACE!
+REYNA DOMINATED THE ROUND.
+EMPRESS ACTIVATED ❤️');
+        heart.remove();
+      };
+
+      hearts.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 350);
+
+    /* Countdown */
+    const countdownEl = document.getElementById('countdown');
+    const birthday = new Date(new Date().getFullYear(), 0, 29, 0, 0, 0);
+
+    function updateCountdown() {
+      const now = new Date();
+      let diff = birthday - now;
+      if (diff < 0) diff += 365 * 24 * 60 * 60 * 1000;
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownEl.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
 
